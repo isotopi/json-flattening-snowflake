@@ -126,6 +126,7 @@ WITH json_data AS (
         ORDER BY level -- Ensures consistent top-down structure
     )
 )
+
 , ordered_flatten_definition AS (
     SELECT
         -- Combine all generated FLATTEN clauses into one formatted string
@@ -143,6 +144,7 @@ WITH json_data AS (
         ORDER BY level_flatten -- Ensures flattening happens from shallow to deep
         )
 )
+
 SELECT
     -- Concatenate the final query components into one big SQL string
     'SELECT\n'||
@@ -151,4 +153,3 @@ SELECT
         flatten_definition  -- Dynamically built FLATTEN clauses
     AS QUERY,
 FROM ordered_columns_definition, ordered_flatten_definition
-;
