@@ -1,0 +1,150 @@
+SELECT
+	------- LEVEL 2 -------
+	flatten_users.value:email::VARCHAR AS users_email,
+	flatten_users.value:name::VARCHAR AS users_name,
+	flatten_users.value:id::INTEGER AS users_id,
+	------- LEVEL 2 -------
+	json:settings:language::VARCHAR AS settings_language,
+	json:settings:theme::VARCHAR AS settings_theme,
+	------- LEVEL 3 -------
+	flatten_users.value:profile:age::INTEGER AS users_profile_age,
+	flatten_users.value:profile:gender::VARCHAR AS users_profile_gender,
+	------- LEVEL 3 -------
+	flatten_users.value:subscriptions:premium::BOOLEAN AS users_subscriptions_premium,
+	flatten_users.value:subscriptions:services::ARRAY AS users_subscriptions_services,
+	flatten_users.value:subscriptions:newsletter::BOOLEAN AS users_subscriptions_newsletter,
+	------- LEVEL 3 -------
+	flatten_history.value:device::VARCHAR AS users_history_device,
+	flatten_history.value:login::DATETIME AS users_history_login,
+	flatten_history.value:ip::VARCHAR AS users_history_ip,
+	------- LEVEL 3 -------
+	json:settings:privacy:tracking::BOOLEAN AS settings_privacy_tracking,
+	------- LEVEL 3 -------
+	json:settings:features:beta::BOOLEAN AS settings_features_beta,
+	json:settings:features:experimental::ARRAY AS settings_features_experimental,
+	------- LEVEL 4 -------
+	json:settings:privacy:dataSharing:partners::ARRAY AS privacy_dataSharing_partners,
+	json:settings:privacy:dataSharing:optOut::BOOLEAN AS privacy_dataSharing_optOut,
+	------- LEVEL 4 -------
+	flatten_users.value:profile:preferences:colors::ARRAY AS profile_preferences_colors,
+	flatten_users.value:profile:preferences:hobbies::ARRAY AS profile_preferences_hobbies,
+	------- LEVEL 4 -------
+	json:settings:privacy:ads:frequency::VARCHAR AS privacy_ads_frequency,
+	json:settings:privacy:ads:categories::ARRAY AS privacy_ads_categories,
+	json:settings:privacy:ads:personalized::BOOLEAN AS privacy_ads_personalized,
+	------- LEVEL 4 -------
+	json:settings:features:enabledModules:analytics::BOOLEAN AS features_enabledModules_analytics,
+	json:settings:features:enabledModules:recommendations::BOOLEAN AS features_enabledModules_recommendations,
+	json:settings:features:enabledModules:liveChat::BOOLEAN AS features_enabledModules_liveChat,
+	------- LEVEL 4 -------
+	flatten_subscriptions_paymentHistory.value:method::VARCHAR AS subscriptions_paymentHistory_method,
+	flatten_subscriptions_paymentHistory.value:amount::FLOAT AS subscriptions_paymentHistory_amount,
+	flatten_subscriptions_paymentHistory.value:date::DATETIME AS subscriptions_paymentHistory_date,
+	------- LEVEL 4 -------
+	flatten_users.value:profile:social:linkedIn::VARCHAR AS profile_social_linkedIn,
+	flatten_users.value:profile:social:twitter::VARCHAR AS profile_social_twitter,
+	flatten_users.value:profile:social:instagram::VARCHAR AS profile_social_instagram,
+	------- LEVEL 4 -------
+	flatten_history.value:location:country::VARCHAR AS history_location_country,
+	flatten_history.value:location:city::VARCHAR AS history_location_city,
+	------- LEVEL 4 -------
+	flatten_actions.value:element::VARCHAR AS history_actions_element,
+	flatten_actions.value:page::VARCHAR AS history_actions_page,
+	flatten_actions.value:timestamp::DATETIME AS history_actions_timestamp,
+	flatten_actions.value:type::VARCHAR AS history_actions_type,
+	------- LEVEL 5 -------
+	flatten_users.value:profile:preferences:music:favoriteArtists::ARRAY AS preferences_music_favoriteArtists,
+	flatten_users.value:profile:preferences:music:genres::ARRAY AS preferences_music_genres,
+	------- LEVEL 5 -------
+	flatten_users.value:profile:social:activity:posts::INTEGER AS social_activity_posts,
+	flatten_users.value:profile:social:activity:following::INTEGER AS social_activity_following,
+	flatten_users.value:profile:social:activity:followers::INTEGER AS social_activity_followers,
+	------- LEVEL 5 -------
+	flatten_actions.value:details:buttonColor::VARCHAR AS actions_details_buttonColor,
+	flatten_actions.value:details:buttonSize::VARCHAR AS actions_details_buttonSize,
+	flatten_actions.value:details:interaction::VARCHAR AS actions_details_interaction,
+	flatten_subscriptions_paymentHistory.value:details:cardType::VARCHAR AS paymentHistory_details_cardType,
+	flatten_actions.value:details:elementsViewed::ARRAY AS actions_details_elementsViewed,
+	flatten_subscriptions_paymentHistory.value:details:lastFourDigits::DATETIME AS paymentHistory_details_lastFourDigits,
+	flatten_actions.value:details:duration::VARCHAR AS actions_details_duration,
+	flatten_actions.value:details:ctaText::VARCHAR AS actions_details_ctaText,
+	------- LEVEL 5 -------
+	flatten_history.value:location:coordinates:altitude::FLOAT AS location_coordinates_altitude,
+	flatten_history.value:location:coordinates:latitude::FLOAT AS location_coordinates_latitude,
+	flatten_history.value:location:coordinates:longitude::FLOAT AS location_coordinates_longitude,
+	------- LEVEL 5 -------
+	flatten_users.value:profile:preferences:notifications:email::BOOLEAN AS preferences_notifications_email,
+	flatten_users.value:profile:preferences:notifications:push::BOOLEAN AS preferences_notifications_push,
+	flatten_users.value:profile:preferences:notifications:sms::BOOLEAN AS preferences_notifications_sms,
+	------- LEVEL 5 -------
+	json:settings:privacy:ads:exceptions:allowedPartners::ARRAY AS ads_exceptions_allowedPartners,
+	json:settings:privacy:ads:exceptions:blockedCategories::ARRAY AS ads_exceptions_blockedCategories,
+	------- LEVEL 5 -------
+	flatten_settings_privacy_dataSharing_logs.value:timestamp::DATETIME AS dataSharing_logs_timestamp,
+	flatten_settings_privacy_dataSharing_logs.value:partner::VARCHAR AS dataSharing_logs_partner,
+	flatten_settings_privacy_dataSharing_logs.value:sharedData::ARRAY AS dataSharing_logs_sharedData,
+	------- LEVEL 6 -------
+	flatten_settings_privacy_dataSharing_logs.value:details:revoked::BOOLEAN AS logs_details_revoked,
+	flatten_settings_privacy_dataSharing_logs.value:details:duration::VARCHAR AS logs_details_duration,
+	flatten_settings_privacy_dataSharing_logs.value:details:purpose::VARCHAR AS logs_details_purpose,
+	------- LEVEL 6 -------
+	flatten_profile_preferences_music_playlists.value:name::VARCHAR AS music_playlists_name,
+	------- LEVEL 6 -------
+	flatten_profile_social_activity_recentPosts.value:comments::INTEGER AS activity_recentPosts_comments,
+	flatten_profile_social_activity_recentPosts.value:content::VARCHAR AS activity_recentPosts_content,
+	flatten_profile_social_activity_recentPosts.value:id::INTEGER AS activity_recentPosts_id,
+	flatten_profile_social_activity_recentPosts.value:likes::INTEGER AS activity_recentPosts_likes,
+	------- LEVEL 6 -------
+	flatten_subscriptions_paymentHistory.value:details:billingAddress:city::VARCHAR AS details_billingAddress_city,
+	flatten_subscriptions_paymentHistory.value:details:billingAddress:zip::DATETIME AS details_billingAddress_zip,
+	flatten_subscriptions_paymentHistory.value:details:billingAddress:state::VARCHAR AS details_billingAddress_state,
+	flatten_subscriptions_paymentHistory.value:details:billingAddress:street::VARCHAR AS details_billingAddress_street,
+	------- LEVEL 6 -------
+	flatten_history.value:location:coordinates:accuracy:horizontal::INTEGER AS coordinates_accuracy_horizontal,
+	flatten_history.value:location:coordinates:accuracy:vertical::INTEGER AS coordinates_accuracy_vertical,
+	------- LEVEL 6 -------
+	json:settings:features:enabledModules:submodules:chatbot:version::VARCHAR AS submodules_chatbot_version,
+	json:settings:features:enabledModules:submodules:chatbot:enabled::BOOLEAN AS submodules_chatbot_enabled,
+	------- LEVEL 6 -------
+	flatten_users.value:profile:preferences:notifications:channels:backup::ARRAY AS notifications_channels_backup,
+	flatten_users.value:profile:preferences:notifications:channels:priority::ARRAY AS notifications_channels_priority,
+	------- LEVEL 7 -------
+	flatten_tracks.value:artist::VARCHAR AS playlists_tracks_artist,
+	flatten_tracks.value:duration::VARCHAR AS playlists_tracks_duration,
+	flatten_tracks.value:title::VARCHAR AS playlists_tracks_title,
+	------- LEVEL 7 -------
+	json:settings:features:enabledModules:submodules:chatbot:settings:fallback::VARCHAR AS chatbot_settings_fallback,
+	json:settings:features:enabledModules:submodules:chatbot:settings:responseTime::VARCHAR AS chatbot_settings_responseTime,
+	json:settings:features:enabledModules:submodules:chatbot:settings:languageModel::VARCHAR AS chatbot_settings_languageModel,
+	------- LEVEL 7 -------
+	flatten_profile_social_activity_recentPosts.value:engagement:shares::INTEGER AS recentPosts_engagement_shares,
+	------- LEVEL 8 -------
+	flatten_profile_social_activity_recentPosts.value:engagement:reactions:angry::INTEGER AS engagement_reactions_angry,
+	flatten_profile_social_activity_recentPosts.value:engagement:reactions:love::INTEGER AS engagement_reactions_love,
+	flatten_profile_social_activity_recentPosts.value:engagement:reactions:sad::INTEGER AS engagement_reactions_sad,
+	flatten_profile_social_activity_recentPosts.value:engagement:reactions:wow::INTEGER AS engagement_reactions_wow,
+	------- LEVEL 8 -------
+	flatten_tracks.value:metadata:album::VARCHAR AS tracks_metadata_album,
+	flatten_tracks.value:metadata:awards::ARRAY AS tracks_metadata_awards,
+	flatten_tracks.value:metadata:inspiredBy::VARCHAR AS tracks_metadata_inspiredBy,
+	flatten_tracks.value:metadata:releaseYear::INTEGER AS tracks_metadata_releaseYear,
+	flatten_tracks.value:metadata:period::VARCHAR AS tracks_metadata_period,
+	flatten_tracks.value:metadata:movements::INTEGER AS tracks_metadata_movements,
+	flatten_tracks.value:metadata:instruments::ARRAY AS tracks_metadata_instruments,
+FROM DEMO_DB.DEMO_SCHEMA.DEMO_TABLE
+	------- LEVEL 1 -------
+	,LATERAL FLATTEN(INPUT => json:users, OUTER => TRUE) AS flatten_users
+	------- LEVEL 1 -------
+	,LATERAL FLATTEN(INPUT => json:settings:privacy:dataSharing:logs, OUTER => TRUE) AS flatten_settings_privacy_dataSharing_logs
+	------- LEVEL 2 -------
+	,LATERAL FLATTEN(INPUT => flatten_users.value:history, OUTER => TRUE) AS flatten_history
+	------- LEVEL 2 -------
+	,LATERAL FLATTEN(INPUT => flatten_users.value:subscriptions:paymentHistory, OUTER => TRUE) AS flatten_subscriptions_paymentHistory
+	------- LEVEL 2 -------
+	,LATERAL FLATTEN(INPUT => flatten_users.value:profile:preferences:music:playlists, OUTER => TRUE) AS flatten_profile_preferences_music_playlists
+	------- LEVEL 2 -------
+	,LATERAL FLATTEN(INPUT => flatten_users.value:profile:social:activity:recentPosts, OUTER => TRUE) AS flatten_profile_social_activity_recentPosts
+	------- LEVEL 3 -------
+	,LATERAL FLATTEN(INPUT => flatten_profile_preferences_music_playlists.value:tracks, OUTER => TRUE) AS flatten_tracks
+	------- LEVEL 3 -------
+	,LATERAL FLATTEN(INPUT => flatten_history.value:actions, OUTER => TRUE) AS flatten_actions

@@ -1,0 +1,289 @@
+{
+    "store": {
+        "details": {
+            "name": "Tech Gadgets Store",
+            "location": {
+                "address": {
+                    "street": "123 Main Street",
+                    "suite": "Suite 101",
+                    "city": "Techville",
+                    "state": "CA",
+                    "zipCode": "90210",
+                    "country": "USA"
+                },
+                "coordinates": {
+                    "latitude": 34.052235,
+                    "longitude": -118.243683,
+                    "geoDetails": {
+                        "elevation": 305,
+                        "timezone": "PST",
+                        "utcOffset": "-08:00",
+                        "climate": {
+                            "averageTemperature": {
+                                "summer": 85,
+                                "winter": 60
+                            },
+                            "precipitation": {
+                                "annual": 15,
+                                "monthly": {
+                                    "January": 3,
+                                    "February": 2,
+                                    "March": 1,
+                                    "April": 1,
+                                    "May": 0.5,
+                                    "June": 0.2,
+                                    "July": 0.1,
+                                    "August": 0.1,
+                                    "September": 0.3,
+                                    "October": 1,
+                                    "November": 2,
+                                    "December": 3
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "contact": {
+            "info": {
+                "email": "support@techgadgets.com",
+                "phone": "+1-800-555-1234"
+            },
+            "socialMedia": {
+                "platforms": {
+                    "facebook": {
+                        "url": "facebook.com/techgadgets",
+                        "followers": 12000,
+                        "engagement": {
+                            "likes": 5000,
+                            "shares": 1200,
+                            "comments": 800
+                        }
+                    },
+                    "twitter": {
+                        "handle": "@techgadgets",
+                        "followers": 8000,
+                        "engagement": {
+                            "retweets": 300,
+                            "likes": 2000,
+                            "replies": 150
+                        }
+                    },
+                    "instagram": {
+                        "url": "instagram.com/techgadgets",
+                        "followers": 15000,
+                        "engagement": {
+                            "likes": 7000,
+                            "comments": 1200,
+                            "shares": 500
+                        }
+                    },
+                    "youtube": {
+                        "channel": "youtube.com/techgadgets",
+                        "subscribers": 50000,
+                        "videos": {
+                            "list": [
+                                {
+                                    "title": "Top 10 Gadgets of 2023",
+                                    "views": 100000,
+                                    "likes": 5000,
+                                    "comments": 800
+                                },
+                                {
+                                    "title": "Wireless Headphones Review",
+                                    "views": 75000,
+                                    "likes": 3000,
+                                    "comments": 500
+                                },
+                                {
+                                    "title": "Smartphone Comparison 2023",
+                                    "views": 85000,
+                                    "likes": 4000,
+                                    "comments": 600
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "inventory": {
+            "products": [
+                {
+                    "id": 1,
+                    "details": {
+                        "name": "Wireless Headphones",
+                        "category": "Electronics",
+                        "price": 99.99,
+                        "stock": {
+                            "quantity": 150,
+                            "warehouse": {
+                                "location": "Warehouse A",
+                                "lastRestocked": "2023-09-25T08:00:00Z",
+                                "manager": {
+                                    "name": "Bob Smith",
+                                    "contact": {
+                                        "email": "bob.smith@warehouse.com",
+                                        "phone": "+1-800-555-9876"
+                                    }
+                                }
+                            }
+                        },
+                        "ratings": {
+                            "average": 4.5,
+                            "reviews": {
+                                "total": 120,
+                                "detailed": {
+                                    "stars5": 80,
+                                    "stars4": 30,
+                                    "stars3": 5,
+                                    "stars2": 3,
+                                    "star1": 2
+                                }
+                            }
+                        },
+                        "specifications": {
+                            "brand": "SoundPro",
+                            "features": ["Bluetooth 5.0", "Noise Cancelling", "20-hour Battery Life"],
+                            "warranty": {
+                                "period": "1 year",
+                                "type": "Manufacturer",
+                                "conditions": {
+                                    "coverage": "Full",
+                                    "exceptions": ["Water Damage", "Physical Damage"]
+                                }
+                            },
+                            "dimensions": {
+                                "weight": "250g",
+                                "size": {
+                                    "width": "15cm",
+                                    "height": "20cm",
+                                    "depth": "5cm"
+                                }
+                            },
+                            "battery": {
+                                "type": "Lithium-ion",
+                                "capacity": "500mAh",
+                                "chargingTime": "2 hours"
+                            }
+                        }
+                    },
+                    "relatedProducts": [2, 3],
+                    "discounts": {
+                        "list": [
+                            {
+                                "type": "Seasonal",
+                                "value": 10,
+                                "startDate": "2023-11-01",
+                                "endDate": "2023-11-30"
+                            },
+                            {
+                                "type": "Clearance",
+                                "value": 20,
+                                "startDate": "2023-12-01",
+                                "endDate": "2023-12-31"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 3,
+                    "details": {
+                        "name": "Tablet",
+                        "category": "Electronics",
+                        "price": 299.99,
+                        "stock": {
+                            "quantity": 100,
+                            "warehouse": {
+                                "location": "Warehouse C",
+                                "lastRestocked": "2023-09-15T09:00:00Z",
+                                "manager": {
+                                    "name": "Tom Harris",
+                                    "contact": {
+                                        "email": "tom.harris@warehouse.com",
+                                        "phone": "+1-800-555-6543"
+                                    }
+                                }
+                            }
+                        },
+                        "ratings": {
+                            "average": 4.6,
+                            "reviews": {
+                                "total": 200,
+                                "detailed": {
+                                    "stars5": 150,
+                                    "stars4": 40,
+                                    "stars3": 5,
+                                    "stars2": 3,
+                                    "star1": 2
+                                }
+                            }
+                        },
+                        "specifications": {
+                            "brand": "TabTech",
+                            "features": ["10-inch Display", "64GB Storage", "Wi-Fi + Cellular"],
+                            "warranty": {
+                                "period": "1 year",
+                                "type": "Manufacturer",
+                                "conditions": {
+                                    "coverage": "Full",
+                                    "exceptions": ["Screen Damage", "Water Damage"]
+                                }
+                            },
+                            "dimensions": {
+                                "weight": "500g",
+                                "size": {
+                                    "width": "25cm",
+                                    "height": "15cm",
+                                    "depth": "0.7cm"
+                                }
+                            },
+                            "battery": {
+                                "type": "Lithium-ion",
+                                "capacity": "7000mAh",
+                                "chargingTime": "3 hours"
+                            }
+                        }
+                    },
+                    "relatedProducts": [1, 2],
+                    "discounts": {
+                        "list": [
+                            {
+                                "type": "Holiday",
+                                "value": 15,
+                                "startDate": "2023-12-15",
+                                "endDate": "2023-12-31"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "events": {
+            "list": [
+                {
+                    "eventId": 1,
+                    "name": "Tech Expo 2023",
+                    "date": "2023-12-01",
+                    "location": "Techville Convention Center",
+                    "description": "Showcasing the latest gadgets and technology."
+                },
+                {
+                    "eventId": 2,
+                    "name": "Holiday Giveaway",
+                    "date": "2023-12-20",
+                    "location": "Tech Gadgets Store",
+                    "description": "Special holiday event with free gifts for customers."
+                },
+                {
+                    "eventId": 3,
+                    "name": "New Year Sale",
+                    "date": "2024-01-01",
+                    "location": "Tech Gadgets Store",
+                    "description": "Kick off the new year with amazing discounts."
+                }
+            ]
+        }
+    }
+}
