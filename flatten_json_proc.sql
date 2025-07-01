@@ -72,7 +72,7 @@ WITH json_data AS (
         CASE
             WHEN level_flatten = 0 THEN -- If the field isn''t in an array structure
                 LISTAGG( DISTINCT
-                    ''\tJSON:''||relative_path||''::''||column_type||'' AS ''||
+                    ''\tjson:''||relative_path||''::''||column_type||'' AS ''||
                                                             CASE 
                                                                 WHEN grandpa IS NOT NULL THEN grandpa||''_''||parent
                                                                 ELSE parent
