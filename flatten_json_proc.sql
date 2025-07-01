@@ -166,7 +166,6 @@ SELECT
         flatten_definition  -- Dynamically built FLATTEN clauses
     AS QUERY,
 FROM ordered_columns_definition, ordered_flatten_definition
-;
 '
 ;
 
