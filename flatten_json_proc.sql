@@ -67,16 +67,17 @@ WITH json_data AS (
 
 , columns_definition AS (
     SELECT DISTINCT
-        level,
+        level, 
         -- Construct SELECT clause lines depending on whether flattening is needed
         CASE
             WHEN level_flatten = 0 THEN -- If the field isn''t in an array structure
                 LISTAGG( DISTINCT
                     ''\tjson:''||relative_path||''::''||column_type||'' AS ''||
                                                             CASE 
-                                                                WHEN grandpa IS NOT NULL THEN grandpa||''_''||parent
-                                                                ELSE parent
-                                                            END ||''_''||column_name||'',\n''
+                                                                WHEN grandpa IS NOT NULL THEN grandpa||''_''||parent||''_''
+                                                                WHEN parent IS NOT NULL THEN parent||''_''
+                                                                ELSE ''''
+                                                            END ||column_name||'',\n''
                 ) OVER (PARTITION BY level, parent)
             ELSE -- If the field comes from a flattened array (requires aliasing from LATERAL FLATTEN)
                 LISTAGG( DISTINCT
@@ -99,6 +100,7 @@ WITH json_data AS (
 
 , flatten_levels AS (
     SELECT DISTINCT
+        -- column_type, column_name, last_flatten_field
         level_flatten,
         -- Dynamically generate the FLATTEN clauses
         CASE
@@ -112,8 +114,8 @@ WITH json_data AS (
                 ) OVER (PARTITION BY level_flatten, parent, grandpa)
         END AS flatten_definition
     FROM ranked_types r1
-    -- Avoid including object type arrays. ([1, 2, 3] -> OK. [{1:1, 2:2}, {3:3}] -> KO; this last one will be flattened and the field mapped will one of the ones inside the array) -- revisar
-    WHERE column_type != ''ARRAY'' OR NOT EXISTS (
+    -- Avoid including non OBJECT type arrays. ([1, 2, 3] -> KO. [{1:1, 2:2}, {3:3}] -> OK
+    WHERE column_type != ''ARRAY'' OR EXISTS (
                                             SELECT 1
                                             FROM ranked_types r2
                                             WHERE r1.column_name = r2.last_flatten_field
@@ -164,8 +166,7 @@ SELECT
         flatten_definition  -- Dynamically built FLATTEN clauses
     AS QUERY,
 FROM ordered_columns_definition, ordered_flatten_definition
-
-
+;
 '
 ;
 
