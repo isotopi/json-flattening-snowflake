@@ -28,7 +28,7 @@ This project provides a reusable and dynamic solution for flattening nested JSON
 ### 📚 Medium Article
 
 Learn more about the approach, design decisions, and use cases in the accompanying blog post:  
-👉 [Read the article on Medium](https://your-article-link)
+👉 [Read the article on Medium](https://medium.com/@isoto3145/from-json-chaos-to-clean-columns-dynamic-sql-for-nested-data-in-snowflake-574d042abb54)
 
 ---
 
